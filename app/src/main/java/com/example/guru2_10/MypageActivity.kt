@@ -74,7 +74,7 @@ class MypageActivity : AppCompatActivity() {
                 builder.setTitle("포인트 교환")
                 builder.setMessage("1000p로 환경 굿즈와 교환하시겠습니까?")
                 builder.setPositiveButton("예") { dialog, _ ->
-                    val randomNumber = Random.nextInt(1000, 9999)
+                    val randomNumber = Random.nextInt(0, 100)
                     val newPoints = userPoints - 1000
                     dbManager.updateUserPoints(userId, newPoints)
                     tvPoints.text = "포인트 : $newPoints"
