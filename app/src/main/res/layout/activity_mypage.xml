@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MypageActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="마이페이지"
+            android:textColor="#89AF89"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:paddingBottom="30dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginRight="15dp"
+                app:tint="#89AF89"
+                android:src="@drawable/baseline_person_24"
+                android:background="@drawable/border"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp">
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="아이디 : "
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/tvPoints"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="포인트 : 0"
+                    android:textSize="20sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnChange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#89AF89"
+            android:textColor="@color/white"
+            android:text="포인트 교환하러가기"/>
+
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='※ 포인트 교환 방법\n- 챌린지나 퀴즈에 참여하여 포인트를 모을 수있습니다.\n- 1000p를 모으면 환경 관련 굿즈 제공를 해드립니다.\n- "포인트 교환하러가기" 버튼을 눌러 포인트 교환이 가능합니다.
+\n\n※ 환경 관련 굿즈 수령 방법 \n- 교환 완료창이 나오면 캡쳐합니다.\n- 0사무실에 오셔서 캡쳐 화면을 보여주시고 수령하시면 됩니다.'/>
+
+        <Button
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:backgroundTint="#89AF89"
+            android:text="로그아웃"
+            android:id="@+id/btnLogout"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:backgroundTint="#89AF89"
+            android:text="회원 탈퇴"
+            android:id="@+id/btnDel"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

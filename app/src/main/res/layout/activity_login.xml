@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:layout_marginTop="150dp"
+        android:layout_width="wrap_content"
+        android:textColor="#89AF89"
+        android:layout_height="wrap_content"
+        android:text="로그인"
+        android:textSize="50dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="50dp" />
+
+    <EditText
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="#89AF89"
+        android:hint="아이디"
+        android:id="@+id/edtId"/>
+    <EditText
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:textColorHint="#89AF89"
+        android:hint="비밀번호"
+        android:id="@+id/edtPw"
+        android:layout_marginBottom="5dp"/>
+    <Button
+        android:layout_gravity="center"
+        android:layout_width="200dp"
+        android:id="@+id/btnLogin"
+        android:backgroundTint="#89AF89"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        android:text="로그인"/>
+    <Button
+        android:layout_gravity="center"
+        android:id="@+id/btnJoin"
+        android:layout_width="200dp"
+        android:textColor="@color/white"
+        android:backgroundTint="#89AF89"
+        android:layout_height="wrap_content"
+        android:text="회원가입"/>
+
+
+</LinearLayout>
