@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 제목 -->
+
+    <!-- 품목 -->
+
+    <!-- 주의사항 -->
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="일반쓰레기"
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="88dp" /> <!-- layout_marginTop 사용 -->
+
+    <!-- layout_marginTop 사용 -->
+
+    <!-- layout_marginTop 사용 -->
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="품목"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView3" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="재활용이 불가능한 모든 쓰레기\n오염된 종이(기름 묻은 피자 박스, 물에 젖은 종이),\n오염된 플라스틱(기름이 묻은 용기), \n위생용품(휴지, 마스크), 깨진 유리, 세라믹류"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView4" />
+
+    <!-- layout_marginTop 사용 -->
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:text="주의사항"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView5" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="1. 일반쓰레기는 반드시 종량제 봉투에 담아서 버립니다.\n\n2. 날카로운 쓰레기(깨진 유리 등)는 신문지 등으로 싸서 \n    안전하게 처리 후 배출합니다.\n\n3. 배출 전 음식물이 섞여 있는 경우 깨끗하게 분리하고, \n    음식물 쓰레기는 별도의 배출함에 따로 버립니다."
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView6" /> <!-- layout_marginTop 사용 -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
