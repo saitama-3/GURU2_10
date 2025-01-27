@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 텀블러 세척기 위치 표시 -->
+
+    <ImageView
+        android:id="@+id/mapImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="-7dp"
+        android:src="@drawable/campus_map" />
+
+    <ImageView
+        android:id="@+id/tumblerIcon1"
+        android:layout_width="16dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="242dp"
+        android:layout_marginTop="245dp"
+        android:background="#F44336"
+        android:backgroundTint="#F44336"
+        android:cropToPadding="true"
+        android:src="@android:drawable/ic_dialog_map" />
+
+    <ImageView
+        android:id="@+id/tumblerIcon2"
+        android:layout_width="16dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="255dp"
+        android:layout_marginTop="295dp"
+        android:background="#F44336"
+        android:backgroundTint="#F44336"
+        android:cropToPadding="true"
+        android:src="@android:drawable/ic_dialog_map" />
+
+</RelativeLayout>
