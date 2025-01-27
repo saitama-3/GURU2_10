@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/btn_certify"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="#89AF89"
+        android:text="인증하기"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:text="영수증에서 '텀블러' 텍스트를 인식해야 인증됩니다."
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</LinearLayout>
