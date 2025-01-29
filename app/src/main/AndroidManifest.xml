@@ -70,7 +70,8 @@
         <activity android:name=".ScoreActivity" />
         <activity android:name=".Score2Activity" />
 
-        <activity android:name=".CameraActivity" />
+        <activity android:name=".CameraActivity"
+            tools:ignore="MissingClass" />
     </application>
 
 </manifest>
