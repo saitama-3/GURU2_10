@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // 분리수거 챌린지 버튼 클릭 시 챌린지 화면으로 이동
+        // 환경 챌린지 버튼 클릭 시 챌린지 화면으로 이동
         val btnChallenge: Button = findViewById(R.id.btn_challenge)
         btnChallenge.setOnClickListener {
             val intent = Intent(this, ChallengeActivity::class.java)
