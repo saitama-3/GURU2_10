@@ -25,6 +25,8 @@ class CertificationCompleteActivity : AppCompatActivity() {
         val txtCertificationComplete: TextView = findViewById(R.id.txt_certification_status)
         val txtPointsAwarded: TextView = findViewById(R.id.txt_points)
         val btnRetry: Button = findViewById(R.id.btn_retry) // "다시 시도" 버튼
+        val btnGoHome: Button = findViewById(R.id.btn_go_home) // "챌린지 홈으로 가기" 버튼
+
 
         // 인증 결과 확인
         val isSuccess = intent.getBooleanExtra("isSuccess", false)
@@ -50,6 +52,14 @@ class CertificationCompleteActivity : AppCompatActivity() {
                 val intent = Intent(this, TumblerOCRActivity::class.java)
                 startActivity(intent)
                 finish() // 이전 화면으로 돌아가기
+            }
+
+            // "챌린지 홈으로 가기" 버튼 클릭 이벤트
+            btnGoHome.setOnClickListener {
+                val intent = Intent(this, ChallengeActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP // 이전 액티비티 스택 제거 후 이동
+                startActivity(intent)
+                finish()
             }
         }
     }
