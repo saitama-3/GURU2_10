@@ -1,4 +1,4 @@
-package com.example.challenge3
+package com.example.guru2_10
 
 import android.Manifest
 import android.content.Intent
@@ -12,6 +12,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.guru2_10.R
+import com.example.guru2_10.RecycleActivity
 
 class CameraActivity : AppCompatActivity() {
     companion object {
