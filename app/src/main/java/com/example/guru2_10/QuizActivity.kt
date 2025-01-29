@@ -11,6 +11,8 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.challenge3.CameraActivity
+
 //import com.example.challenge3.databinding.ActivityCameraBinding
 
 
@@ -19,10 +21,18 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class QuizActivity : AppCompatActivity() {
+    //DB
+    private lateinit var dbManager: DBManager
+    private lateinit var userId: String
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
+
+        //DB
+        dbManager = DBManager(this, "userPointsDB",null,1)
+        userId =  getUserIdFromSharedPreferences()
 
 
         data class Question(
@@ -74,11 +84,20 @@ class QuizActivity : AppCompatActivity() {
 
         // 정답 확인 버튼 클릭 이벤트
         buttonAnswer.setOnClickListener {
+            //DB
+            if (isAnswerCorrect){
+                dbManager.updateUserPoints(userId, 15)
+            }
             // 정답 여부를 ScoreActivity로 전달
             val intent = Intent(this, ScoreActivity::class.java)
             intent.putExtra("IS_ANSWER_CORRECT", isAnswerCorrect)
             startActivity(intent)
         }
+    }
+    //DB
+    private fun getUserIdFromSharedPreferences(): String {
+        val sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE)
+        return  sharedPreferences.getString("userId", "Guest") ?: "Guest"
     }
 }
 
@@ -156,10 +175,18 @@ class Score2Activity : AppCompatActivity() {
 }
 
 class RecycleActivity : AppCompatActivity() {
+    //DB
+    private lateinit var dbManager: DBManager
+    private lateinit var userId: String
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycle)
+
+        //DB
+        dbManager = DBManager(this, "userPointsDB",null,1)
+        userId = getUserIdFromSharePreferences()
 
         val checkBox1: CheckBox = findViewById(R.id.checkBox1)
         val checkBox2: CheckBox = findViewById(R.id.checkBox2)
@@ -171,6 +198,8 @@ class RecycleActivity : AppCompatActivity() {
         button_next.setOnClickListener {
             // 모든 체크박스가 체크되었는지 확인
             if (checkBox1.isChecked && checkBox2.isChecked && checkBox4.isChecked) {
+                //DB
+                dbManager.updateUserPoints(userId, 15)
                 // ScoreActivity로 이동
                 val intent = Intent(this,Score2Activity::class.java)
                 startActivity(intent)
@@ -179,6 +208,11 @@ class RecycleActivity : AppCompatActivity() {
                 Toast.makeText(this, "모든 체크박스를 선택해주세요.", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+    //DB
+    private fun getUserIdFromSharePreferences(): String {
+        val sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE)
+        return sharedPreferences.getString("userId", "Guest")?: "Guest"
     }
 }
 
