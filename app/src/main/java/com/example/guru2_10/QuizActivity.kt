@@ -11,7 +11,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.challenge3.CameraActivity
+import com.example.guru2_10.CameraActivity
 
 //import com.example.challenge3.databinding.ActivityCameraBinding
 
@@ -59,16 +59,16 @@ class QuizActivity : AppCompatActivity() {
 
 
         val textQuestion: TextView = findViewById(R.id.text_Question)
-            val buttonYes: Button = findViewById(R.id.button_Yes) // O 버튼
-            val buttonNo: Button = findViewById(R.id.button_No) // X 버튼
-            val buttonAnswer: Button = findViewById(R.id.button_answer)
+        val buttonYes: Button = findViewById(R.id.button_Yes) // O 버튼
+        val buttonNo: Button = findViewById(R.id.button_No) // X 버튼
+        val buttonAnswer: Button = findViewById(R.id.button_answer)
 
-            // 랜덤으로 질문 하나 선택
-            val currentQuestion = questions.random()
-            textQuestion.text = currentQuestion.question
+        // 랜덤으로 질문 하나 선택
+        val currentQuestion = questions.random()
+        textQuestion.text = currentQuestion.question
 
-            // 버튼 클릭 이벤트
-            var isAnswerCorrect = false
+        // 버튼 클릭 이벤트
+        var isAnswerCorrect = false
 
         // "O" 버튼 클릭 이벤트
         buttonYes.setOnClickListener {
