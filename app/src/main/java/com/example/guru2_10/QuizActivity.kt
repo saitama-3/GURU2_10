@@ -2,13 +2,20 @@ package com.example.challenge3
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+//import com.example.challenge3.databinding.ActivityCameraBinding
+
+
+
+
 
 
 class QuizActivity : AppCompatActivity() {
@@ -92,7 +99,7 @@ class ScoreActivity : AppCompatActivity() {
         val button_home : ImageButton= findViewById(R.id.button_home2)
         button_home.setOnClickListener {
             // MainActivity로 이동하는 Intent 생성 및 시작
-            val intent = Intent(this, StartActivity::class.java)
+            val intent = Intent(this, ChallengeActivity::class.java)
             startActivity(intent) // 새 Activity 시작
 
         }
@@ -120,7 +127,7 @@ class StartActivity : AppCompatActivity() {
 
         button1.setOnClickListener {
             // MainActivity로 이동하는 Intent 생성 및 시작
-            val intent = Intent(this, RecycleActivity::class.java)
+            val intent = Intent(this, CameraActivity::class.java)
             startActivity(intent) // 새 Activity 시작
 
         }
@@ -137,7 +144,7 @@ class Score2Activity : AppCompatActivity() {
         val button_home : ImageButton= findViewById(R.id.button_home2)
         button_home.setOnClickListener {
             // MainActivity로 이동하는 Intent 생성 및 시작
-            val intent = Intent(this, StartActivity::class.java)
+            val intent = Intent(this, ChallengeActivity::class.java)
             startActivity(intent) // 새 Activity 시작
 
         }
