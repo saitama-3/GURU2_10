@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 제목 -->
+    <TextView
+        android:id="@+id/g1textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="캔·병류"
+        android:textSize="30sp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 품목 텍스트 -->
+
+    <!-- 품목 설명 -->
+    <TextView
+        android:id="@+id/g1textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="품목"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/g1textView3" />
+
+    <TextView
+        android:id="@+id/g1textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="음료수병, 부탄가스, 살충제, 유리 소스병, 음료수캔, 통조림캔"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/g1textView4" />
+
+    <!-- 주의사항-캔 -->
+    <TextView
+        android:id="@+id/g1textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
+        android:text="주의사항-캔"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/g1textView5" />
+
+    <!-- 주의사항-캔 설명 -->
+    <TextView
+        android:id="@+id/g1textView9"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        android:text="1. 캔 안에 내용물을 비우고 물로 헹궈 이물질을 제거합니다.\n\n2. 부착된 라벨(종이, 플라스틱)을 분리해 각각의 배출함에 넣습니다.\n\n3. 부피를 줄일 수 있으면 눌러서 납작하게 만들어 배출하면 더 좋습니다."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/g1textView6" />
+
+    <!-- 주의사항-병 -->
+    <TextView
+        android:id="@+id/g1textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        android:text="주의사항-병"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/g1textView9" />
+
+    <!-- 주의사항-병 설명 -->
+    <TextView
+        android:id="@+id/g1textView7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:text="1. 병 안에 남아 있는 내용물을 완전히 비웁니다.\n\n2. 물로 깨끗하게 헹궈 이물질(음식물 찌꺼기 등)을 제거합니다.\n\n3. 유리병에 붙은 라벨이나 뚜껑(금속, 플라스틱)을 분리합니다. 뚜껑은 각각 금속 또는 플라스틱 배출함에 넣어야 합니다.\n\n4. 깨진 유리병은 재활용이 어려우므로 신문지 등으로 싸서 일반쓰레기로 배출해야 합니다."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/g1textView8" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- 제목 -->
+    <TextView
+        android:id="@+id/g5tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="재활용품 분리배출 가이드라인"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- 이미지 -->
+
+    <!-- 가이드 보러가기 텍스트 -->
+    <ImageView
+        android:id="@+id/g5vImage"
+        android:layout_width="match_parent"
+        android:layout_height="535dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/guide_image" />
+
+    <!-- RecyclerView (PDF 페이지를 표시할 곳) -->
+    <TextView
+        android:id="@+id/g5vGuideLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="가이드 보러가기"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="18sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/g5pdfRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" /> <!-- 기본적으로 숨겨두기 -->
+
+</LinearLayout>

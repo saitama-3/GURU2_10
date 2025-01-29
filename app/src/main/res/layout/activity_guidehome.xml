@@ -1,0 +1,99 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="guidehomeActivity">
+
+    <!-- 제목 텍스트 -->
+    <TextView
+        android:id="@+id/ghtextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="교내 쓰레기 배출 가이드"
+        android:textSize="21sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp" />
+
+    <!-- 버튼 1 -->
+    <ImageButton
+        android:id="@+id/ghimageButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="120dp"
+        android:src="@android:drawable/ic_menu_delete"
+        app:layout_constraintEnd_toStartOf="@id/ghimageButton2"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.40" />
+
+    <!-- 버튼 2 -->
+    <ImageButton
+        android:id="@+id/ghimageButton2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="20dp"
+        android:src="@android:drawable/ic_menu_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintStart_toEndOf="@id/ghimageButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.40" />
+
+    <!-- 버튼 3 -->
+    <ImageButton
+        android:id="@+id/ghimageButton3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:src="@android:drawable/ic_menu_delete"
+        app:layout_constraintEnd_toStartOf="@id/ghimageButton4"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ghimageButton"
+        app:layout_constraintWidth_percent="0.40" />
+
+    <!-- 버튼 4 -->
+    <ImageButton
+        android:id="@+id/ghimageButton4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="20dp"
+        android:src="@android:drawable/ic_menu_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintStart_toEndOf="@id/ghimageButton3"
+        app:layout_constraintTop_toBottomOf="@id/ghimageButton2"
+        app:layout_constraintWidth_percent="0.40" />
+
+    <!-- 클릭 버튼 -->
+    <Button
+        android:id="@+id/ghbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="클릭"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ghimageButton3" />
+
+    <!-- 마지막 텍스트 -->
+    <TextView
+        android:id="@+id/ghtextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="보다 자세한 정보를 원하시면"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.293"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ghbutton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
