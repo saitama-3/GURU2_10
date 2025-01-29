@@ -45,4 +45,14 @@
         android:textColorLink="@color/green"
         android:textStyle="bold" />
 
+    <Button
+        android:id="@+id/btn_home"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#89AF89"
+        android:text="홈 이동"
+        android:textColorLink="@color/green"
+        android:textStyle="bold" />
+
 </LinearLayout>
