@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 
 class DBManager(
     context: Context?,
@@ -27,32 +28,56 @@ class DBManager(
     }
 
     fun updateUserPoints(userId: String, points: Int) {
-        val db = writableDatabase
-        if (userExists(userId)) {
-            db.execSQL("UPDATE user_info SET points = $points WHERE id = '$userId'")
-        } else {
-            db.execSQL("INSERT INTO user_info (id, points) VALUES ('$userId', $points)")
+        val db: SQLiteDatabase = writableDatabase
+        try {
+            val exists = userExists(db, userId)
+            Log.d("DBManager", "User exists: $exists")
+            if (exists) {
+                db.execSQL("UPDATE user_info SET points = points + ? WHERE id = ?", arrayOf(points, userId))
+                Log.d("DBManager", "Update points : $userId = $points")
+            } else {
+                db.execSQL("INSERT INTO user_info (id, password, points) VALUES (?, ?, ?)", arrayOf(userId, "default_password", points))
+
+                Log.d("DBManager", "new user: $userId with $points points")
+            }
+        } catch (e: Exception) {
+            Log.e("DBManager", "Error updating points", e)
+        } finally {
+            db.close()
         }
     }
 
     @SuppressLint("Range")
     fun getUserPoints(userId: String): Int {
-        val db = readableDatabase
-        val cursor = db.rawQuery("SELECT points FROM user_info WHERE id = ?", arrayOf(userId))
+        val db: SQLiteDatabase = readableDatabase
         var points = 0
-        if (cursor.moveToFirst()) {
-            points = cursor.getInt(cursor.getColumnIndex("points"))
+        try {
+            val cursor = db.rawQuery("SELECT points FROM user_info WHERE id = ?", arrayOf(userId))
+            Log.d("DBManager", "User ID: $userId, Cursor count: ${cursor.count}")
+            if (cursor.moveToFirst()) {
+                points = cursor.getInt(cursor.getColumnIndex("points"))
+            }
+            cursor.close()
+        } catch (e: Exception) {
+            Log.e("DBManager", "Error getting points", e)
+        } finally {
+            db.close()
         }
-        cursor.close()
         return points
     }
 
-    @SuppressLint("Range")
-    fun userExists(userId: String): Boolean {
-        val db = readableDatabase
-        val cursor = db.rawQuery("SELECT id FROM user_info WHERE id = ?", arrayOf(userId))
-        val exists = cursor.moveToFirst()
-        cursor.close()
+    private fun userExists(db: SQLiteDatabase, userId: String): Boolean {
+        var exists = false
+        try {
+            val cursor = db.rawQuery("SELECT id FROM user_info WHERE id = ?", arrayOf(userId))
+            exists = cursor.moveToFirst()
+            cursor.close()
+        } catch (e: Exception) {
+            Log.e("DBManager", "Error check user exists", e)
+        }
         return exists
     }
 }
+
+
+
