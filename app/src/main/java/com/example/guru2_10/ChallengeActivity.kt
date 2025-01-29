@@ -17,5 +17,13 @@ class ChallengeActivity : AppCompatActivity() {
             val intent = Intent(this, TumblerChallengeActivity::class.java)
             startActivity(intent)
         }
+        // 홈으로 가기 버튼 클릭 시 메인 화면(MainActivity)으로 이동
+        val btnHome: Button = findViewById(R.id.btn_home)
+        btnHome.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
+            finish() // 현재 화면 종료
+        }
     }
 }
