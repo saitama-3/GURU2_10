@@ -63,6 +63,14 @@
         <activity
             android:name=".CertificationCompleteActivity"
             android:exported="true" />
+
+        <activity android:name=".QuizActivity" />
+        <activity android:name=".RecycleActivity" />
+
+        <activity android:name=".ScoreActivity" />
+        <activity android:name=".Score2Activity" />
+
+        <activity android:name=".CameraActivity" />
     </application>
 
 </manifest>
