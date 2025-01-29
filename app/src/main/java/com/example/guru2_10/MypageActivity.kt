@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -38,23 +39,38 @@ class MypageActivity : AppCompatActivity() {
             deleteAccount()
         }
 
-
         dbManager = DBManager(this, "userPointsDB", null, 1)
-
         userId = getUserIdFromSharedPreferences()
 
+        updateUI()
+
+        btnChange.setOnClickListener {
+            exchangePoints()
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    override fun onResume() {
+        super.onResume()
+        userId = getUserIdFromSharedPreferences()
+        updateUI()
+    }
+
+    @SuppressLint("SetTextI18n", "Range")
+    private fun updateUI() {
         if (userId != "Guest") {
             try {
                 sqlitedb = dbManager.readableDatabase
-                val cursor = sqlitedb.rawQuery("SELECT * FROM user_info WHERE id = ?", arrayOf(userId))
-
+                val cursor = sqlitedb.rawQuery("SELECT points FROM user_info WHERE id = ?", arrayOf(userId))
                 if (cursor.moveToFirst()) {
                     val userPoints = cursor.getInt(cursor.getColumnIndex("points"))
                     tvPoints.text = "포인트 : $userPoints"
                     tvName.text = "아이디 : $userId"
+                    Log.d("MypageActivity", "사용자 포인트 $userPoints")
                 } else {
                     tvName.text = "아이디 : Guest"
                     tvPoints.text = "포인트 : 0"
+                    Log.d("MypageActivity", "사용자 포인트 0")
                 }
                 cursor.close()
             } catch (e: Exception) {
@@ -66,39 +82,10 @@ class MypageActivity : AppCompatActivity() {
             tvName.text = "아이디 : Guest"
             tvPoints.text = "포인트 : 0"
         }
-
-        btnChange.setOnClickListener {
-            val userPoints = tvPoints.text.toString().replace("포인트 : ", "").toIntOrNull() ?: 0
-            if (userPoints >= 1000) {
-                val builder = AlertDialog.Builder(this)
-                builder.setTitle("포인트 교환")
-                builder.setMessage("1000p로 환경 굿즈와 교환하시겠습니까?")
-                builder.setPositiveButton("예") { dialog, _ ->
-                    val randomNumber = Random.nextInt(0, 100)
-                    val newPoints = userPoints - 1000
-                    dbManager.updateUserPoints(userId, newPoints)
-                    tvPoints.text = "포인트 : $newPoints"
-                    val exchangeBuilder = AlertDialog.Builder(this)
-                    exchangeBuilder.setTitle("교환 완료")
-                    exchangeBuilder.setMessage("축하합니다! 교환 번호는 $randomNumber 번 입니다!")
-                    exchangeBuilder.setPositiveButton("확인") { _, _ ->
-                        Toast.makeText(this, "교환 완료", Toast.LENGTH_SHORT).show()
-                    }
-                    exchangeBuilder.create().show()
-                }
-                builder.setNegativeButton("아니요") { dialog, _ ->
-                    dialog.dismiss()
-                    Toast.makeText(this, "교환 취소", Toast.LENGTH_SHORT).show()
-                }
-                builder.create().show()
-            } else {
-                Toast.makeText(this, "포인트가 부족합니다.", Toast.LENGTH_SHORT).show()
-            }
-        }
-
     }
 
-    private fun logout(){
+
+    private fun logout() {
         val sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.clear()
@@ -131,10 +118,36 @@ class MypageActivity : AppCompatActivity() {
         builder.create().show()
     }
 
+    private fun exchangePoints() {
+        val userPoints = tvPoints.text.toString().replace("포인트 : ", "").toIntOrNull() ?: 0
+        if (userPoints >= 1000) {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("포인트 교환")
+            builder.setMessage("1000p로 환경 굿즈와 교환하시겠습니까?")
+            builder.setPositiveButton("예") { _, _ ->
+                val randomNumber = Random.nextInt(0, 100)
+                dbManager.updateUserPoints(userId, -1000)
+                updateUI()
+                val exchangeBuilder = AlertDialog.Builder(this)
+                exchangeBuilder.setTitle("교환 완료")
+                exchangeBuilder.setMessage("축하합니다! 교환 번호는 $randomNumber 번 입니다!")
+                exchangeBuilder.setPositiveButton("확인") { _, _ ->
+                    Toast.makeText(this, "교환 완료", Toast.LENGTH_SHORT).show()
+                }
+                exchangeBuilder.create().show()
+            }
+            builder.setNegativeButton("아니요") { dialog, _ ->
+                dialog.dismiss()
+                Toast.makeText(this, "교환 취소", Toast.LENGTH_SHORT).show()
+            }
+            builder.create().show()
+        } else {
+            Toast.makeText(this, "포인트가 부족합니다.", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     private fun getUserIdFromSharedPreferences(): String {
         val sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE)
         return sharedPreferences.getString("userId", "Guest") ?: "Guest"
     }
 }
-
