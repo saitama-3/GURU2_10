@@ -16,6 +16,12 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ChallengeActivity::class.java)
             startActivity(intent)
         }
+        // 텀블러 지도 버튼 클릭 시 지도 화면으로 이동
+        val btnTumblerMap: Button = findViewById(R.id.btn_tumbler_map)
+        btnChallenge.setOnClickListener {
+            val intent = Intent(this, ChallengeActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
 
