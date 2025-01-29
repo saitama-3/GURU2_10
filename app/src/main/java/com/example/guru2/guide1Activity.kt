@@ -3,9 +3,9 @@ package com.example.guru2
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
-class FourthActivity : AppCompatActivity() {
+class guide1Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_fourth) // activity_fourth.xml 연결
+        setContentView(R.layout.activity_guide1) // activity_second.xml 연결
     }
 }

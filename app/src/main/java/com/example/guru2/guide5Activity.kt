@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import java.io.File
 import android.view.ViewGroup
 
-class DetailActivity : AppCompatActivity() {
+class guide5Activity : AppCompatActivity() {
 
     private lateinit var pdfRecyclerView: RecyclerView
     private lateinit var tvGuideLink: TextView
@@ -22,7 +22,7 @@ class DetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail)
+        setContentView(R.layout.activity_guide5)
 
         // 제목 설정
         val tvTitle: TextView = findViewById(R.id.tvTitle)
