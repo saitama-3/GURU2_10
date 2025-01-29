@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    android:padding="30dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="2"
+        android:columnCount="2"
+        android:alignmentMode="alignMargins"
+        android:useDefaultMargins="true">
+
+        <!-- 환경챌린지 버튼 -->
+        <Button
+            android:id="@+id/btn_challenge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#89AF89"
+            android:text="환경 챌린지"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <!-- 마이페이지 버튼 -->
+        <Button
+            android:id="@+id/btn_mypage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#89AF89"
+            android:text="마이페이지"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <!-- 분리수거 가이드 버튼 -->
+        <Button
+            android:id="@+id/btn_recycling_guide"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#89AF89"
+            android:text="분리수거 가이드"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+        <!-- 텀블러 지도 버튼 -->
+        <Button
+            android:id="@+id/btn_tumbler_map"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:backgroundTint="#89AF89"
+            android:text="텀블러 지도"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+    </GridLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3" />
+
+</LinearLayout>
