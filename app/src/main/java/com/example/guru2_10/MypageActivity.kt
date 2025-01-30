@@ -12,8 +12,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlin.random.Random
 
+//마이페이지액티비티 클래스 정의
 class MypageActivity : AppCompatActivity() {
 
+    //변수 선언
     lateinit var tvName: TextView
     lateinit var tvPoints: TextView
     private var userId: String = "Guest"
@@ -25,25 +27,30 @@ class MypageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mypage)
 
+        //뷰 바인딩
         tvName = findViewById(R.id.tvName)
         tvPoints = findViewById(R.id.tvPoints)
         val btnChange = findViewById<Button>(R.id.btnChange)
         val btnLogout = findViewById<Button>(R.id.btnLogout)
         val btnDel = findViewById<Button>(R.id.btnDel)
 
+        //로그아웃 버튼 클릭 리스너
         btnLogout.setOnClickListener {
             logout()
         }
 
+        //회원 탈퇴 버튼 클릭 리스너
         btnDel.setOnClickListener {
             deleteAccount()
         }
-
+        //DBManager 초기화 및 SharedPreferences에서 사용자 ID 가져오기
         dbManager = DBManager(this, "userPointsDB", null, 1)
         userId = getUserIdFromSharedPreferences()
 
+        //UI 업데이트
         updateUI()
 
+        //포인트 교환 버튼 클릭 리스너
         btnChange.setOnClickListener {
             exchangePoints()
         }
@@ -52,12 +59,14 @@ class MypageActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     override fun onResume() {
         super.onResume()
+        //액티비티 재개 시 사용자 ID를 다시 가져오고 UI 업데이트
         userId = getUserIdFromSharedPreferences()
         updateUI()
     }
 
     @SuppressLint("SetTextI18n", "Range")
     private fun updateUI() {
+        //사용자 ID가  Guest가 아닌 경우 DB에서 사용자 정보를 가져와서 UI 업데이트
         if (userId != "Guest") {
             try {
                 sqlitedb = dbManager.readableDatabase
@@ -84,7 +93,7 @@ class MypageActivity : AppCompatActivity() {
         }
     }
 
-
+    //로그아웃 함수
     private fun logout() {
         val sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
@@ -95,7 +104,7 @@ class MypageActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
-
+    //회원 탈퇴 함수
     private fun deleteAccount() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("회원 탈퇴")
@@ -117,7 +126,7 @@ class MypageActivity : AppCompatActivity() {
         }
         builder.create().show()
     }
-
+    //포인트 교환 함수
     private fun exchangePoints() {
         val userPoints = tvPoints.text.toString().replace("포인트 : ", "").toIntOrNull() ?: 0
         if (userPoints >= 1000) {
@@ -126,6 +135,7 @@ class MypageActivity : AppCompatActivity() {
             builder.setMessage("1000p로 환경 굿즈와 교환하시겠습니까?")
             builder.setPositiveButton("예") { _, _ ->
                 val randomNumber = Random.nextInt(0, 100)
+                //사용자 포인트 업데이트 및 UI 업데이트
                 dbManager.updateUserPoints(userId, -1000)
                 updateUI()
                 val exchangeBuilder = AlertDialog.Builder(this)
@@ -145,7 +155,7 @@ class MypageActivity : AppCompatActivity() {
             Toast.makeText(this, "포인트가 부족합니다.", Toast.LENGTH_SHORT).show()
         }
     }
-
+    //SharedPreferences에서 userId를 가져오는 함수
     private fun getUserIdFromSharedPreferences(): String {
         val sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE)
         return sharedPreferences.getString("userId", "Guest") ?: "Guest"

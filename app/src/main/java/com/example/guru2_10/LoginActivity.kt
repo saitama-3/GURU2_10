@@ -13,8 +13,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 
-
+//로그인 액티비티 클래스 정의
 class LoginActivity : AppCompatActivity() {
+    //변수 선언
     lateinit var dbManager: DBManager
     lateinit var sqlitedb: SQLiteDatabase
     lateinit var edtId: EditText
@@ -33,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        //뷰 바인딩
         edtId = findViewById(R.id.edtId)
         edtPw = findViewById(R.id.edtPw)
         btnLogin = findViewById(R.id.btnLogin)
@@ -46,11 +47,13 @@ class LoginActivity : AppCompatActivity() {
             val str_id = edtId.text.toString()
             val str_password = edtPw.text.toString()
 
+            //아이디와 비밀번호가 입력되었는지 확인
             if (str_id.isNotEmpty() && str_password.isNotEmpty()) {
                 try {
                     sqlitedb = dbManager.readableDatabase
                     val cursor = sqlitedb.rawQuery("SELECT * FROM user_info WHERE id = '$str_id' AND password = '$str_password'", null)
 
+                    //로그인 성공 시
                     if (cursor.moveToFirst()) {
                         with(sharedPreferences.edit()) {
                             putString("userId", str_id)
@@ -61,6 +64,7 @@ class LoginActivity : AppCompatActivity() {
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                     } else {
+                        //로그인 실패 시
                         Toast.makeText(this, "아이디 또는 비밀번호가 잘못되었습니다.", Toast.LENGTH_SHORT).show()
                     }
                     cursor.close()
@@ -73,7 +77,7 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "아이디와 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
             }
         }
-
+        //회원 가입 버튼 클릭 리스너
         btnJoin.setOnClickListener {
             val intent = Intent(this, JoinActivity::class.java)
             startActivity(intent)

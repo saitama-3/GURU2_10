@@ -11,8 +11,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-
+//회원가입 액티비티 클래스 정의
 class JoinActivity : AppCompatActivity() {
+    //변수 선언
     lateinit var dbManager: DBManager
     lateinit var sqlitedb: SQLiteDatabase
     lateinit var joinButton: Button
@@ -29,7 +30,7 @@ class JoinActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        //뷰 바인딩
         joinButton = findViewById(R.id.joinButton)
         edtjId = findViewById(R.id.edtjId)
         edtjPw = findViewById(R.id.edtjPw)
@@ -40,11 +41,13 @@ class JoinActivity : AppCompatActivity() {
             val str_id = edtjId.text.toString()
             val str_password = edtjPw.text.toString()
 
+            //아이디와 비밀번호가 입력되었는지 확인
             if (str_id.isNotEmpty() && str_password.isNotEmpty()) {
                 try {
                     sqlitedb = dbManager.readableDatabase
                     val cursor = sqlitedb.rawQuery("SELECT * FROM user_info WHERE id = '$str_id'", null)
                     if (cursor.count > 0) {
+                        //아이디가 이미 존재할 경우
                         Toast.makeText(this, "아이디가 이미 존재합니다.", Toast.LENGTH_SHORT).show()
                     } else {
                         sqlitedb = dbManager.writableDatabase
