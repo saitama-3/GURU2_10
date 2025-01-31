@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="16dp"
-        android:text="영수증에서 '텀블러' 텍스트를 인식해야 인증됩니다."
+        android:text="영수증에서 'Tumbler' 텍스트를 인식해야 인증됩니다."
         android:textSize="16sp"
         android:textStyle="bold" />
 
