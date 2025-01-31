@@ -21,7 +21,7 @@ import com.example.guru2_10.CameraActivity
 
 
 class QuizActivity : AppCompatActivity() {
-    //DB
+    //DB관련 변수 선언
     private lateinit var dbManager: DBManager
     private lateinit var userId: String
 
@@ -30,7 +30,7 @@ class QuizActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
 
-        //DB
+        //DBManager 초기화 및 사용자 ID 가져오기
         dbManager = DBManager(this, "userPointsDB",null,1)
         userId =  getUserIdFromSharedPreferences()
 
@@ -84,7 +84,7 @@ class QuizActivity : AppCompatActivity() {
 
         // 정답 확인 버튼 클릭 이벤트
         buttonAnswer.setOnClickListener {
-            //DB
+            //DB에 사용자 포인트 업데이트
             if (isAnswerCorrect){
                 dbManager.updateUserPoints(userId, 15)
             }
@@ -94,7 +94,7 @@ class QuizActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-    //DB
+    //SharedPreferences에서 사용자 ID 가져오기
     private fun getUserIdFromSharedPreferences(): String {
         val sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE)
         return  sharedPreferences.getString("userId", "Guest") ?: "Guest"
@@ -175,7 +175,7 @@ class Score2Activity : AppCompatActivity() {
 }
 
 class RecycleActivity : AppCompatActivity() {
-    //DB
+    //DB 관련 변수 선언
     private lateinit var dbManager: DBManager
     private lateinit var userId: String
 
@@ -184,7 +184,7 @@ class RecycleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycle)
 
-        //DB
+        //DBManager 초기화 및 사용자 ID  가져오기
         dbManager = DBManager(this, "userPointsDB",null,1)
         userId = getUserIdFromSharePreferences()
 
@@ -198,7 +198,7 @@ class RecycleActivity : AppCompatActivity() {
         button_next.setOnClickListener {
             // 모든 체크박스가 체크되었는지 확인
             if (checkBox1.isChecked && checkBox2.isChecked && checkBox4.isChecked) {
-                //DB
+                //DB에 사용자 포인트 업데이트
                 dbManager.updateUserPoints(userId, 15)
                 // ScoreActivity로 이동
                 val intent = Intent(this,Score2Activity::class.java)
@@ -209,7 +209,7 @@ class RecycleActivity : AppCompatActivity() {
             }
         }
     }
-    //DB
+    //SharedPreferences에서 사용자 ID 가져오기
     private fun getUserIdFromSharePreferences(): String {
         val sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE)
         return sharedPreferences.getString("userId", "Guest")?: "Guest"
