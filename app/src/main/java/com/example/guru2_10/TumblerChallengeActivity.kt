@@ -17,7 +17,7 @@ class TumblerChallengeActivity : AppCompatActivity() {
         // 버튼 클릭 이벤트 처리
         btnCertify.setOnClickListener {
             // 인증 화면으로 이동
-            val intent = Intent(this, TumblerOCRActivity::class.java)
+            val intent = Intent(this, MlkitActivity::class.java)
             startActivity(intent)
         }
     }
