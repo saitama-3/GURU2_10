@@ -66,10 +66,3 @@ class guide4Activity : AppCompatActivity() {
     }
 }
 
-class guide5Activity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_guide5)
-    }
-}
