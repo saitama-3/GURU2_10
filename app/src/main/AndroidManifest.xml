@@ -26,6 +26,9 @@
         android:theme="@style/Theme.Guru2_10"
         tools:targetApi="31">
         <activity
+            android:name=".MlkitActivity"
+            android:exported="false" />
+        <activity
             android:name=".MypageActivity"
             android:exported="false" />
         <activity
