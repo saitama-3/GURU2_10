@@ -1,73 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="bottom"
-    android:padding="30dp">
+    tools:context=".MainActivity">
 
-    <View
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/hivImage"
+        android:layout_width="342dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="35dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/hButton3"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="5" />
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="36dp"
+        android:background="#89af89"
+        android:src="@android:drawable/ic_menu_delete"
+        android:text="텀블러 지도"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.13"
+        app:layout_constraintStart_toEndOf="@id/hButton2"
+        app:layout_constraintTop_toBottomOf="@id/hButton1"
+        app:layout_constraintWidth_percent="0.30" />
 
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rowCount="2"
-        android:columnCount="2"
-        android:alignmentMode="alignMargins"
-        android:useDefaultMargins="true">
-
-        <!-- 환경챌린지 버튼 -->
-        <Button
-            android:id="@+id/btn_challenge"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:backgroundTint="#89AF89"
-            android:text="환경 챌린지"
-            android:textColor="#ffffff"
-            android:textStyle="bold" />
-
-        <!-- 마이페이지 버튼 -->
-        <Button
-            android:id="@+id/btn_mypage"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:backgroundTint="#89AF89"
-            android:text="마이페이지"
-            android:textColor="#ffffff"
-            android:textStyle="bold" />
-
-        <!-- 분리수거 가이드 버튼 -->
-        <Button
-            android:id="@+id/btn_recycling_guide"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:backgroundTint="#89AF89"
-            android:text="분리수거 가이드"
-            android:textColor="#ffffff"
-            android:textStyle="bold" />
-
-        <!-- 텀블러 지도 버튼 -->
-        <Button
-            android:id="@+id/btn_tumbler_map"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:backgroundTint="#89AF89"
-            android:text="텀블러 지도"
-            android:textColor="#ffffff"
-            android:textStyle="bold" />
-
-    </GridLayout>
-
-    <View
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/hButton2"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="3" />
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="52dp"
+        android:background="#89af89"
+        android:src="@android:drawable/ic_menu_delete"
+        android:text="분리수거 가이드"
+        app:layout_constraintEnd_toStartOf="@id/hButton3"
+        app:layout_constraintHeight_percent="0.13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/hButton"
+        app:layout_constraintWidth_percent="0.30" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/hButton1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="348dp"
+        android:layout_marginEnd="36dp"
+        android:background="#89af89"
+        android:src="@android:drawable/ic_menu_delete"
+        android:text="마이 페이지"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.13"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/hButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.30" />
+
+    <Button
+        android:id="@+id/hButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="348dp"
+        android:background="#89af89"
+        android:src="@android:drawable/ic_menu_delete"
+        android:text="환경 챌린지"
+        app:layout_constraintEnd_toStartOf="@id/hButton1"
+        app:layout_constraintHeight_percent="0.13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.3" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

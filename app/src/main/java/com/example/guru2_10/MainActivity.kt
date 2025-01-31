@@ -1,5 +1,6 @@
 package com.example.guru2_10
 
+
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -8,21 +9,29 @@ import android.widget.Button
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main) // XML 연결
 
-        // 환경 챌린지 버튼 클릭 시 챌린지 화면으로 이동
-        val btnChallenge: Button = findViewById(R.id.btn_challenge)
-        btnChallenge.setOnClickListener {
-            val intent = Intent(this, ChallengeActivity::class.java)
-            startActivity(intent)
+        // 버튼 연결
+        val mapButton: Button = this.findViewById(R.id.hButton3)
+        val guideButton: Button = this.findViewById(R.id.hButton2)
+        val myPageButton: Button = this.findViewById(R.id.hButton1)
+        val challengeButton: Button = this.findViewById(R.id.hButton)
+
+        // 버튼 클릭 이벤트
+        mapButton.setOnClickListener {
+            startActivity(Intent(this, MapActivity::class.java))
         }
-        // 텀블러 지도 버튼 클릭 시 지도 화면으로 이동
-        val btnTumblerMap: Button = findViewById(R.id.btn_tumbler_map)
-        btnTumblerMap.setOnClickListener {
-            val intent = Intent(this, MapActivity::class.java)
-            startActivity(intent)
+
+        guideButton.setOnClickListener {
+            startActivity(Intent(this, guidehomeActivity::class.java))
+        }
+
+        myPageButton.setOnClickListener {
+            startActivity(Intent(this, MypageActivity::class.java))
+        }
+
+        challengeButton.setOnClickListener {
+            startActivity(Intent(this, ChallengeActivity::class.java))
         }
     }
 }
-
-//다른 버튼 이동 코드 필요함
