@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- 앱이 카메라와 저장소 및 네트워크 접근 권한을 요청 -->
+    <!-- 앱이 카메라, 저장소 및 네트워크 접근 권한을 요청 -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -14,7 +14,11 @@
     <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
-    
+
+    <!-- PDF 파일 열기 권한 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -40,15 +44,14 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+
         <activity android:name=".MainActivity"
             android:exported="true"/>
+
         <!-- ChallengeActivity -->
-        
         <activity
             android:name=".ChallengeActivity"
             android:exported="true" />
@@ -75,12 +78,38 @@
 
         <activity android:name=".QuizActivity" />
         <activity android:name=".RecycleActivity" />
-
         <activity android:name=".ScoreActivity" />
         <activity android:name=".Score2Activity" />
 
         <activity android:name=".CameraActivity"
             tools:ignore="MissingClass" />
-    </application>
 
+        <!-- Guide 관련 액티비티 추가 -->
+        <activity
+            android:name=".Guide1Activity"
+            android:exported="true" />
+        <activity
+            android:name=".Guide2Activity"
+            android:exported="true" />
+
+        <activity
+            android:name=".Guide3Activity"
+            android:exported="true" />
+
+        <activity
+            android:name=".Guide4Activity"
+            android:exported="true" />
+
+
+        <activity
+            android:name=".Guide5Activity"
+            android:exported="true" />
+
+        <activity
+            android:name=".GuidehomeActivity"
+            android:exported="true" />
+
+
+    </application>
 </manifest>
+
