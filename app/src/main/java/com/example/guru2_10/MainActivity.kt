@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         guideButton.setOnClickListener {
-            startActivity(Intent(this, guidehomeActivity::class.java))
+            startActivity(Intent(this, GuidehomeActivity::class.java))
         }
 
         myPageButton.setOnClickListener {
