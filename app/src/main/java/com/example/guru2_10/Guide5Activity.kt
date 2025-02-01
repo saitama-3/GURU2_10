@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import java.io.File
 import android.view.ViewGroup
 
-class guide5Activity : AppCompatActivity() {
+class Guide5Activity : AppCompatActivity() {
 
     private lateinit var pdfRecyclerView: RecyclerView
     private lateinit var tvGuideLink: TextView
