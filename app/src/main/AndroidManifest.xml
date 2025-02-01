@@ -70,7 +70,7 @@
 
         <!-- MapActivity -->
         <activity
-            android:name=".MapCompleteActivity"
+            android:name=".MapActivity"
             android:exported="true" />
 
         <activity android:name=".QuizActivity" />
