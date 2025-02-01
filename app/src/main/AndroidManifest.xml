@@ -68,6 +68,11 @@
             android:name=".CertificationCompleteActivity"
             android:exported="true" />
 
+        <!-- MapActivity -->
+        <activity
+            android:name=".MapCompleteActivity"
+            android:exported="true" />
+
         <activity android:name=".QuizActivity" />
         <activity android:name=".RecycleActivity" />
 
