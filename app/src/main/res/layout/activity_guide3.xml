@@ -11,7 +11,7 @@
     <!-- 주의사항 -->
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/g3textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/g3textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -31,10 +31,10 @@
         android:text="품목"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView3" />
+        app:layout_constraintTop_toBottomOf="@id/g3textView3" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/g3textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -42,10 +42,10 @@
         android:text="종이컵, 강의 자료, 노트, 책, 포장 상자(택배 박스), 전단지"
         android:textSize="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView4" />
+        app:layout_constraintTop_toBottomOf="@id/g3textView4" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/g3textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -53,10 +53,10 @@
         android:text="주의사항"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView5" />
+        app:layout_constraintTop_toBottomOf="@id/g3textView5" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/g3textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -64,6 +64,6 @@
         android:text="1. 종이에 이물질(기름, 음식물 등)이 묻어 있다면 재활용이 \n    불가능하므로 일반쓰레기로 버립니다.\n\n 2. 종이컵은 내용물을 비운 뒤 세척해 말린 후 배출합니다. \n    종이컵 뚜껑(플라스틱 재질)은 따로 분리 배출합니다.\n\n3. 책이나 노트는 스프링, 플라스틱 부분(표지 등)을 \n    제거하고 종이 부분만 배출합니다.\n\n4. 박스는 테이프, 스티커 등을 제거한 뒤 접어서 부피를 \n    줄여 배출합니다."
         android:textSize="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView6" />
+        app:layout_constraintTop_toBottomOf="@id/g3textView6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
