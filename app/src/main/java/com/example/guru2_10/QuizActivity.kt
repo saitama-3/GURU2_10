@@ -127,32 +127,7 @@ class ScoreActivity : AppCompatActivity() {
     }
 }
 
-class StartActivity : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_start)
 
-        val button3: Button = findViewById(R.id.button3)
-
-        button3.setOnClickListener {
-            // MainActivity로 이동하는 Intent 생성 및 시작
-            val intent = Intent(this, QuizActivity::class.java)
-            startActivity(intent) // 새 Activity 시작
-
-        }
-
-        val button1: Button = findViewById(R.id.button1)
-
-        button1.setOnClickListener {
-            // MainActivity로 이동하는 Intent 생성 및 시작
-            val intent = Intent(this, CameraActivity::class.java)
-            startActivity(intent) // 새 Activity 시작
-
-        }
-
-    }
-}
 
 class Score2Activity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
