@@ -61,11 +61,6 @@
             android:name=".TumblerChallengeActivity"
             android:exported="true" />
 
-        <!-- TumblerOCRActivity -->
-        <activity
-            android:name=".TumblerOCRActivity"
-            android:exported="true" />
-
         <!-- CertificationCompleteActivity -->
         <activity
             android:name=".CertificationCompleteActivity"
