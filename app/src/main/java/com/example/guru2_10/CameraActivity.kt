@@ -15,8 +15,8 @@ import androidx.core.content.ContextCompat
 
 class CameraActivity : AppCompatActivity() {
     companion object {
-        const val REQUEST_IMAGE_CAPTURE = 1
-        const val REQUEST_CAMERA_PERMISSION = 2
+        private const val REQUEST_IMAGE_CAPTURE = 1
+        private const val REQUEST_CAMERA_PERMISSION = 2
     }
 
     private var isPhotoCaptured = false // 사진 촬영 여부 확인 변수
@@ -25,18 +25,12 @@ class CameraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
 
-        val btnCapture: Button = findViewById(R.id.btnCapture)
         val button4: Button = findViewById(R.id.button4)
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), REQUEST_CAMERA_PERMISSION)
-        }
-
-        btnCapture.setOnClickListener {
-            val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            if (takePictureIntent.resolveActivity(packageManager) != null) {
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
-            }
+        } else {
+            openCamera()
         }
 
         button4.setOnClickListener {
@@ -44,8 +38,15 @@ class CameraActivity : AppCompatActivity() {
                 val intent = Intent(this, RecycleActivity::class.java)
                 startActivity(intent)
             } else {
-                Toast.makeText(this, "사진 촬영 후 이동할 수 있습니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "사진을 촬영한 후 이동할 수 있습니다.", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    private fun openCamera() {
+        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        if (takePictureIntent.resolveActivity(packageManager) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
         }
     }
 
@@ -53,10 +54,7 @@ class CameraActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CAMERA_PERMISSION) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                if (takePictureIntent.resolveActivity(packageManager) != null) {
-                    startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
-                }
+                openCamera()
             } else {
                 Toast.makeText(this, "카메라 권한이 필요합니다.", Toast.LENGTH_SHORT).show()
             }
@@ -77,3 +75,4 @@ class CameraActivity : AppCompatActivity() {
         }
     }
 }
+
