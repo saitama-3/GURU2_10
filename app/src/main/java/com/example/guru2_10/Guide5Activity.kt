@@ -15,7 +15,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.view.LayoutInflater
 
-
 class Guide5Activity : AppCompatActivity() {
 
     private lateinit var pdfRecyclerView: RecyclerView
@@ -34,14 +33,40 @@ class Guide5Activity : AppCompatActivity() {
         pdfRecyclerView = findViewById(R.id.g5pdfRecyclerView)
         pdfRecyclerView.layoutManager = LinearLayoutManager(this)
 
+        // PDF를 cacheDir에 복사
+        copyPdfToCache()
+
         // PDF 파일을 화면에 표시
         loadPdfPages()
     }
 
+    // assets에서 cacheDir로 PDF 파일 복사
+    private fun copyPdfToCache() {
+        try {
+            val assetManager = assets
+            val inputStream = assetManager.open("guide.pdf")
+            val outputFile = File(cacheDir, "guide.pdf")
+
+            inputStream.use { input ->
+                outputFile.outputStream().use { output ->
+                    input.copyTo(output)
+                }
+            }
+        } catch (e: Exception) {
+            Toast.makeText(this, "PDF 복사 중 오류 발생: ${e.message}", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    // PDF 파일을 화면에 표시
     private fun loadPdfPages() {
         try {
-            // PDF 파일을 로드
             val pdfFile = File(cacheDir, "guide.pdf")
+
+            if (!pdfFile.exists()) {
+                Toast.makeText(this, "PDF 파일이 존재하지 않습니다!", Toast.LENGTH_SHORT).show()
+                return
+            }
+
             val fileDescriptor = ParcelFileDescriptor.open(pdfFile, ParcelFileDescriptor.MODE_READ_ONLY)
             val pdfRenderer = PdfRenderer(fileDescriptor)
 
@@ -63,7 +88,8 @@ class Guide5Activity : AppCompatActivity() {
             pdfRecyclerView.adapter = PdfAdapter(pdfPageList)
 
         } catch (e: Exception) {
-            Toast.makeText(this, "PDF를 불러오는 중 오류 발생!", Toast.LENGTH_SHORT).show()
+            e.printStackTrace()
+            Toast.makeText(this, "PDF를 불러오는 중 오류 발생: ${e.message}", Toast.LENGTH_SHORT).show()
         }
     }
 
