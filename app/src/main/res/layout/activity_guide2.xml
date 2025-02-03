@@ -60,10 +60,10 @@
         android:id="@+id/g2textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:text="  1. 플라스틱 용기 안에 남은 내용물을 비우고 \n    깨끗하게 헹굽니다.\n\n 2. PET병(투명 음료수병)의 경우 라벨을 제거하고, 뚜껑은 \n    본체와 분리해 함께 배출합니다.\n\n3. 배달 음식 용기나 플라스틱 컵은 기름기나 음식물이 묻어 \n    있지 않도록 세척 후 버립니다.\n\n4. 오염된 비닐, 기름때가 심한 플라스틱은 재활용이 \n    불가능하므로 일반쓰레기로 배출합니다."
         android:textSize="16dp"
-        tools:layout_editor_absoluteX="6dp"
-        tools:layout_editor_absoluteY="335dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/g2textView6" />
 
