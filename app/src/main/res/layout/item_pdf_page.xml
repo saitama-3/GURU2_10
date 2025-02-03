@@ -10,5 +10,6 @@
         android:id="@+id/pdfPageImageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scaleType="fitCenter" /> <!-- 이미지를 화면에 맞게 조정 -->
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter" />
 </LinearLayout>
