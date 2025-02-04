@@ -46,6 +46,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation ("androidx.recyclerview:recyclerview:1.2.1")
 
     implementation ("com.google.mlkit:text-recognition:16.0.1") // Google ML Kit 텍스트 인식 라이브러리
     implementation ("androidx.camera:camera-core:1.4.1") // CameraX 핵심 라이브러리
