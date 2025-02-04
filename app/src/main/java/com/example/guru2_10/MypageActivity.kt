@@ -134,7 +134,7 @@ class MypageActivity : AppCompatActivity() {
             builder.setTitle("포인트 교환")
             builder.setMessage("1000p로 환경 굿즈와 교환하시겠습니까?")
             builder.setPositiveButton("예") { _, _ ->
-                val randomNumber = Random.nextInt(0, 100)
+                val randomNumber = Random.nextInt(1000, 9999)
                 //사용자 포인트 업데이트 및 UI 업데이트
                 dbManager.updateUserPoints(userId, -1000)
                 updateUI()

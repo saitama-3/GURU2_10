@@ -45,10 +45,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation("org.json:json:20210307") // JSON 데이터 파싱
-    implementation("com.squareup.okhttp3:okhttp:4.9.1")  // OkHttp 라이브러리 추가
-    implementation("com.squareup.okhttp3:okhttp-urlconnection:4.9.1") // URLConnection을 사용할\ 경우 추가
-    implementation ("androidx.recyclerview:recyclerview:1.2.1")
 
 
     implementation ("com.google.mlkit:text-recognition:16.0.1") // Google ML Kit 텍스트 인식 라이브러리
